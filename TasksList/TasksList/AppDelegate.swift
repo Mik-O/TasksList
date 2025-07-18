@@ -20,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func applicationWillTerminate(_ application: UIApplication) {
+        saveContext()
+    }
+    
     // MARK: - Core Data stack (в домашнем задании вынести это в storge manager)
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "TasksList")
