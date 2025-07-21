@@ -7,9 +7,9 @@
 
 import CoreData
 
-class StorgeManager {
+class StorageManager {
     
-    static let shared = StorgeManager()
+    static let shared = StorageManager()
 
     // MARK: - Core Data stack (в домашнем задании вынести это в storge manager)
      private let persistentContainer: NSPersistentContainer = {
@@ -29,7 +29,7 @@ class StorgeManager {
     private init() {}
  
     // MARK: - Public Methods
-    private func fetchData() -> [Task] {
+     func fetchData() -> [Task] {
         let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
         
         do {
@@ -42,7 +42,7 @@ class StorgeManager {
     
     
     // Save data
-    private func save(_ taskName: String, completion: (Task) -> Void) {
+     func save(_ taskName: String, completion: (Task) -> Void) {
         let task = Task(context: viewContext)
         task.name = taskName
         
