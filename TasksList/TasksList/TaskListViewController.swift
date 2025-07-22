@@ -99,7 +99,7 @@ extension ViewController {
 }
 
     // MARK: - UITableViewDelegate
-extension UIViewController {
+extension ViewController {
     // Edit task
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -110,7 +110,7 @@ extension UIViewController {
     }
     
     // Delete task
-    override func tableView(_ tableView: UITableView, comit editingStyle: UITableViewCell.EditingStyle, forRowAt IndexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt IndexPath: IndexPath) {
         let task = tasks[IndexPath.row]
         
         if editingStyle == .delete {
@@ -123,7 +123,7 @@ extension UIViewController {
 }
 
     // MARK: - Alert Controller
-extension UIViewController {
+extension ViewController {
     
     private func showAlert(task: Task? = nil, completion: (() -> Void)? = nil) {
         
@@ -135,7 +135,7 @@ extension UIViewController {
             preferredStyle: .alert
         )
         
-        alert.actiom(task: task) { taskName in
+        alert.action(task: task) { taskName in
             if let task = task, let completion = completion {
                 StorageManager.shared.edit(task, newName: taskName)
                 completion()
